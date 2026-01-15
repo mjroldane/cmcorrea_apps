@@ -44,7 +44,7 @@ with col2:
  image = Image.open('OIG8.jpg')
  st.image(image, width=200)
  st.write("En la siguiente veremos una aplicación que usa la conversión de voz a texto.") 
- url = "https://traductor-ab0sp9f6fi.streamlit.app/"
+ url = "https://traductorw.streamlit.app/"
  st.write(f"Voz a texto: [Enlace]({url})")
 
  st.subheader("Análisis de Datos")
