@@ -1,6 +1,4 @@
-# =========================
-# 🧠 VISIÓN POR COMPUTADOR
-# =========================
+import streamlit as st
 st.markdown("## 👁️ Visión por Computador")
 st.markdown("---")
 
