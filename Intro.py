@@ -1,87 +1,126 @@
 import streamlit as st
-from PIL import Image
 
-# Configuración de página
 st.set_page_config(
     page_title="Portafolio IA",
     page_icon="🤖",
     layout="wide"
 )
 
-# Título principal
-st.markdown("<h1 style='text-align: center; color: #4CAF50;'>🤖 Portafolio de Aplicaciones de IA</h1>", unsafe_allow_html=True)
+# =========================
+# 🎨 ESTILOS PERSONALIZADOS
+# =========================
+st.markdown("""
+<style>
+/* Fondo general */
+.stApp {
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+}
 
+/* Títulos */
+h1 {
+    color: #2E7D32;
+    text-align: center;
+}
+
+h3 {
+    color: #1B5E20;
+}
+
+/* Tarjetas */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Botones */
+.stLinkButton a {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.stLinkButton a:hover {
+    background-color: #388E3C !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# =========================
+# 🧠 HEADER
+# =========================
+st.markdown("<h1>🤖 Portafolio de Aplicaciones de IA</h1>", unsafe_allow_html=True)
 st.markdown("---")
 
-# Sidebar
+# =========================
+# 📌 SIDEBAR
+# =========================
 with st.sidebar:
     st.header("📌 Sobre este portafolio")
     st.write(
-        "Este portafolio reúne aplicaciones de inteligencia artificial enfocadas en "
-        "automatización, análisis de datos, visión computacional y procesamiento de lenguaje natural."
+        "Aplicaciones de inteligencia artificial enfocadas en automatización, "
+        "visión por computador, NLP y análisis de datos."
     )
-
-    st.markdown("### 🌐 Página general")
-    st.link_button("Ir al sitio principal", "https://sites.google.com/view/aplicacionesdeia/inicio")
+    st.link_button("🌐 Ir al sitio principal", "https://sites.google.com/view/aplicacionesdeia/inicio")
 
 # =========================
-# FUNCION PARA TARJETAS
+# 🧩 FUNCION TARJETA
 # =========================
 def card(titulo, descripcion, url):
-    st.markdown(f"### {titulo}")
-    st.write(descripcion)
+    st.markdown(f"""
+    <div class="card">
+        <h3>{titulo}</h3>
+        <p>{descripcion}</p>
+    </div>
+    """, unsafe_allow_html=True)
     st.link_button("🚀 Abrir aplicación", url)
-    st.markdown("---")
 
 # =========================
-# COLUMNAS
+# 📊 COLUMNAS
 # =========================
 col1, col2, col3 = st.columns(3)
 
-# =========================
-# COLUMNA 1
-# =========================
 with col1:
-    card("🧠 Apps Generales", "Colección de aplicaciones principales", "https://major-apps-24.streamlit.app/")
-    card("🔍 Detección de Objetos (YOLO)", "Reconocimiento de objetos en imágenes", "https://yolov5-mjroldane.streamlit.app/")
-    card("☁️ Nube de Palabras", "Generación de wordclouds", "https://wordcloud-mjroldan.streamlit.app/")
-    card("👁️ Visión IA", "Análisis visual con IA", "https://visionapproldan-04.streamlit.app/")
-    card("🌐 Traductor", "Traducción automática", "https://traductor-mjroldane.streamlit.app/")
+    card("🧠 Apps Generales", "Colección principal de apps", "https://major-apps-24.streamlit.app/")
+    card("🔍 YOLO", "Detección de objetos", "https://yolov5-mjroldane.streamlit.app/")
+    card("☁️ WordCloud", "Nube de palabras", "https://wordcloud-mjroldan.streamlit.app/")
+    card("👁️ Visión IA", "Análisis visual", "https://visionapproldan-04.streamlit.app/")
 
-# =========================
-# COLUMNA 2
-# =========================
 with col2:
-    card("🎤 Texto a Voz", "Conversión de texto en audio", "https://tm-mjroldane.streamlit.app/")
-    card("📊 TF-IDF", "Análisis de texto con TF-IDF", "https://mjroldane-tf-idf.streamlit.app/")
-    card("📈 TF-IDF Español", "Versión en español del análisis", "https://tdfesp-mjroldane.streamlit.app/")
-    card("📋 Dashboard", "Visualización de datos", "https://tablero-roldan-123.streamlit.app/")
-    card("😊 Análisis de Sentimiento", "Clasificación emocional de texto", "https://sentimenta-mjroldane.streamlit.app/")
+    card("🎤 Texto a Voz", "Conversión de texto a audio", "https://tm-mjroldane.streamlit.app/")
+    card("📊 TF-IDF", "Análisis de texto", "https://mjroldane-tf-idf.streamlit.app/")
+    card("📈 Dashboard", "Visualización de datos", "https://tablero-roldan-123.streamlit.app/")
+    card("😊 Sentimiento", "Análisis emocional", "https://sentimenta-mjroldane.streamlit.app/")
 
-# =========================
-# COLUMNA 3
-# =========================
 with col3:
-    card("📡 Envío MQTT", "Comunicación IoT (envío)", "https://sendcmqttmajo-04.streamlit.app/")
-    card("📡 Recepción MQTT", "Comunicación IoT (recepción)", "https://recepmqtt-roldan.streamlit.app/")
-    card("🧾 OCR", "Extracción de texto desde imágenes", "https://ocr-roldan-mj.streamlit.app/")
-    card("🎧 OCR + Audio", "Texto desde imagen y audio", "https://ocr-audio-roldan-mj.streamlit.app/")
-    card("💬 Chat con PDF", "Interacción con documentos", "https://chatpdfroldan-nu3nuywn5722x6n4muvam8.streamlit.app/")
+    card("📡 MQTT Envío", "Comunicación IoT", "https://sendcmqttmajo-04.streamlit.app/")
+    card("🧾 OCR", "Texto desde imágenes", "https://ocr-roldan-mj.streamlit.app/")
+    card("🎧 OCR + Audio", "Multimodal", "https://ocr-audio-roldan-mj.streamlit.app/")
+    card("💬 Chat PDF", "Chat con documentos", "https://chatpdfroldan-nu3nuywn5722x6n4muvam8.streamlit.app/")
 
 # =========================
-# SECCIÓN EXTRA
+# 🧪 EXTRA
 # =========================
-st.markdown("## 🧪 Otros Proyectos")
+st.markdown("## 🧪 Otros proyectos")
 st.markdown("---")
 
 col4, col5 = st.columns(2)
 
 with col4:
     card("📚 Introducción IA", "Conceptos básicos", "https://miintroduccionappmjroldane.streamlit.app/")
-    card("📜 Historia Informática", "Evolución de la tecnología", "https://histinf-roldan.streamlit.app/")
-    card("✋ Hand Tracking", "Seguimiento de manos", "https://hand-w-roldan.streamlit.app/")
+    card("📜 Historia", "Historia informática", "https://histinf-roldan.streamlit.app/")
 
 with col5:
     card("🎨 Dibujo IA", "Reconocimiento de dibujos", "https://drawrecog-roldan664.streamlit.app/")
-    card("🖌️ Ejercicio Dibujo", "Interacción gráfica", "https://ejercicio-draw-majo-roldan.streamlit.app/")
-    card("🎙️ Control por Voz", "Interacción mediante voz", "https://ctrlvoicemajo-9.streamlit.app/")
+    card("🎙️ Control por Voz", "Interacción por voz", "https://ctrlvoicemajo-9.streamlit.app/")
