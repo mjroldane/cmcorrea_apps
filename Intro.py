@@ -7,75 +7,82 @@ st.set_page_config(
 )
 
 # =========================
-# 🎨 ESTILOS PERSONALIZADOS
+# 🎨 ESTILOS
 # =========================
 st.markdown("""
 <style>
+
 /* Fondo general */
 .stApp {
-    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    background: linear-gradient(135deg, #eef2ff, #e0f7fa);
 }
 
-/* Títulos */
+/* Título */
 h1 {
-    color: #2E7D32;
     text-align: center;
+    background: linear-gradient(90deg, #7b2ff7, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+/* Subtítulos */
 h3 {
-    color: #1B5E20;
+    color: #5e35b1;
 }
 
-/* Tarjetas */
+/* Cards */
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
     margin-bottom: 20px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0px 10px 30px rgba(123,47,247,0.2);
 }
 
 /* Botones */
 .stLinkButton a {
-    background-color: #4CAF50 !important;
+    background: linear-gradient(90deg, #7b2ff7, #00c6ff) !important;
     color: white !important;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 10px 16px;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    border: none;
 }
 
 .stLinkButton a:hover {
-    background-color: #388E3C !important;
+    opacity: 0.9;
+    transform: scale(1.03);
 }
+
 </style>
 """, unsafe_allow_html=True)
 
 # =========================
-# 🧠 HEADER
+# HEADER
 # =========================
-st.markdown("<h1>🤖 Portafolio de Aplicaciones de IA</h1>", unsafe_allow_html=True)
+st.markdown("<h1>✨ Portafolio de Aplicaciones de IA</h1>", unsafe_allow_html=True)
 st.markdown("---")
 
 # =========================
-# 📌 SIDEBAR
+# SIDEBAR
 # =========================
 with st.sidebar:
-    st.header("📌 Sobre este portafolio")
+    st.header("💡 Sobre este portafolio")
     st.write(
-        "Aplicaciones de inteligencia artificial enfocadas en automatización, "
-        "visión por computador, NLP y análisis de datos."
+        "Aplicaciones de inteligencia artificial enfocadas en visión, NLP, datos e IoT."
     )
-    st.link_button("🌐 Ir al sitio principal", "https://sites.google.com/view/aplicacionesdeia/inicio")
+    st.link_button("🌐 Ver página principal", "https://sites.google.com/view/aplicacionesdeia/inicio")
 
 # =========================
-# 🧩 FUNCION TARJETA
+# FUNCION CARD
 # =========================
 def card(titulo, descripcion, url):
     st.markdown(f"""
@@ -87,30 +94,30 @@ def card(titulo, descripcion, url):
     st.link_button("🚀 Abrir aplicación", url)
 
 # =========================
-# 📊 COLUMNAS
+# COLUMNAS
 # =========================
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    card("🧠 Apps Generales", "Colección principal de apps", "https://major-apps-24.streamlit.app/")
+    card("🧠 Apps Generales", "Colección principal", "https://major-apps-24.streamlit.app/")
     card("🔍 YOLO", "Detección de objetos", "https://yolov5-mjroldane.streamlit.app/")
     card("☁️ WordCloud", "Nube de palabras", "https://wordcloud-mjroldan.streamlit.app/")
     card("👁️ Visión IA", "Análisis visual", "https://visionapproldan-04.streamlit.app/")
 
 with col2:
-    card("🎤 Texto a Voz", "Conversión de texto a audio", "https://tm-mjroldane.streamlit.app/")
+    card("🎤 Texto a Voz", "Conversión a audio", "https://tm-mjroldane.streamlit.app/")
     card("📊 TF-IDF", "Análisis de texto", "https://mjroldane-tf-idf.streamlit.app/")
-    card("📈 Dashboard", "Visualización de datos", "https://tablero-roldan-123.streamlit.app/")
-    card("😊 Sentimiento", "Análisis emocional", "https://sentimenta-mjroldane.streamlit.app/")
+    card("📈 Dashboard", "Visualización", "https://tablero-roldan-123.streamlit.app/")
+    card("😊 Sentimiento", "Clasificación emocional", "https://sentimenta-mjroldane.streamlit.app/")
 
 with col3:
-    card("📡 MQTT Envío", "Comunicación IoT", "https://sendcmqttmajo-04.streamlit.app/")
+    card("📡 MQTT", "Comunicación IoT", "https://sendcmqttmajo-04.streamlit.app/")
     card("🧾 OCR", "Texto desde imágenes", "https://ocr-roldan-mj.streamlit.app/")
     card("🎧 OCR + Audio", "Multimodal", "https://ocr-audio-roldan-mj.streamlit.app/")
     card("💬 Chat PDF", "Chat con documentos", "https://chatpdfroldan-nu3nuywn5722x6n4muvam8.streamlit.app/")
 
 # =========================
-# 🧪 EXTRA
+# EXTRA
 # =========================
 st.markdown("## 🧪 Otros proyectos")
 st.markdown("---")
